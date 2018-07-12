@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div class="footer bg-dark text-center-white">
+        <label>Develop by <span class="text-warning">S. Rahman</span>, &copy; 2018</label>
+    </div>
+
+
+    <div class="container" id="app">
+        <div class="wrapper mt-4 text-center">
+            <div class="search-wrapper text-center">
+                <input class="form-control text-center" type="text" v-model="keyword" placeholder="Search Title...">
+
+                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#myModal">Add Sites</button>
+            </div>
+
+            <div class="box mt-4">
+                <div class="card" v-for= "post in filteredList" >
+                    <a v-bind:href="post.link" target="_blank">
+                        <img v-bind:src="post.img" alt="">
+                        {{ post.title }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h5>Add New Site</h5></div>
+                <div class="modal-body">
+                    <form class="form">
+                        <label>Title:</label><br>
+                        <input type="text" id="view-title" class="form-control"><br>
+
+                        <label>Site URL:</label><br>
+                        <input type="text" id="linkURL" class="form-control"><br>
+
+                        <label>Image URL:</label><br>
+                        <input type="text" id="imageLink" class="form-control">
+                    </form>
+
+                    <button class="btn btn-success mt-4" v-on:click="#">Save</button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
